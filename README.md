@@ -6,5 +6,3 @@
     - useEffect and Hight Order Components
     - Handle inputs and forms (Formik)
     - Rendering lists and dynamic components
-
-2. [fullstack-01](./fullstack-01/)
