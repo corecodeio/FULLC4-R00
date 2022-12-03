@@ -39,14 +39,15 @@ const Dynamic = () => {
     }
   return (
     <>
-    {portal && <Portal close={setPotal}>
-        <img src={url} alt="avatar"/>
-    </Portal>}
+    <Portal close={setPotal}
+    activo={portal}
+    element={<img src={url} alt="avatar"/>}
+    />
     <input name='name' value={input} onChange={handleInput} />
     <button onClick={back} disabled={page<=1}>back</button>
     <button onClick={next} disabled={page>=totalPages}>next</button>
     <p>{`${page} / ${totalPages}`}</p>
-    {list.filter((item)=> input ? item.first_name===input : true).map((item,index)=>{
+    {list.filter((item)=> item.first_name.toLowerCase().indexOf(input.toLowerCase()) !== -1 ).map((item,index)=>{
         const openPortal = ()=>{
             setUrl(item.avatar);
             setPotal(true);

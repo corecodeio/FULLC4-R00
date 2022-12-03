@@ -19,7 +19,9 @@ const Mouse = () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
   }, []);
-
+  useEffect(() => {
+    console.log('cambio')
+  });
   useEffect(() => {
     if (position.x < 150) {
       setColor("#ff00ff");

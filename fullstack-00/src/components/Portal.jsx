@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import ReactDOM from 'react-dom';
 import Styles from './Portal.module.css';
 
-const Portal = ({ children, close }) => {
+const Portal = ({ element, close, activo }) => {
     const closePortal= ()=>{
         close(false);
     }
@@ -12,12 +12,12 @@ const Portal = ({ children, close }) => {
             console.log('portal cerrado')
         }
     },[]);
-    return ReactDOM.createPortal(
-        <div className={Styles.container}>
+    return activo ? ReactDOM.createPortal(
+        <div className={Styles[`container`]}>
             <button onClick={closePortal}>X</button>
-            {children}
+            {element}
             </div>,document.getElementById('modal')
-    )
+    ):null
 }
 
 export default Portal
